@@ -1,0 +1,46 @@
+#user{
+position:absolute;
+margin-top:-2.5%;
+margin-left:84%;
+}
+#user a{
+text-decoration:none;
+font-size:22px;
+color:#ffffff;
+}
+#customer_navigation_table
+{
+margin-top:10%;
+}
+
+#customer_navigation_table a{
+text-decoration:none;
+font-size:19px;
+}
+
+
+#room_booking_form{
+	position:absolute;
+	margin-left:30%;
+	margin-top:-20%;
+	
+}
+
+#cancel_room_form{
+	position:absolute;
+	margin-left:41%;
+	margin-top:-15%;
+	
+}
+
+#booking_success_message{
+	position:absolute;
+	margin-left:41%;
+	margin-top:-15%;
+}
+
+#cancel_success_message{
+	position:absolute;
+	margin-left:41%;
+	margin-top:-15%;
+}

@@ -1,0 +1,66 @@
+#user{
+position:absolute;
+margin-top:-4%;
+margin-left:84%;
+}
+#user a{
+text-decoration:none;
+font-size:22px;
+color:#ffffff;
+}
+#admin_navigation_table
+{
+margin-top:6%;
+}
+
+#admin_navigation_table a{
+text-decoration:none;
+font-size:19px;
+}
+
+#roomRegistrationform{
+position:absolute;
+margin-top:-40%;	
+margin-left:40%;	
+}
+
+h1{
+	font-size:26px;
+}
+
+
+#display_all_rooms_table{
+position:absolute;
+margin-left:29%;
+margin-top:-42.5%
+	
+}
+
+h3{
+	font-size:17px;
+}
+
+#update_details_table{
+	position:absolute;
+	margin-left:45%;
+	margin-top:-30%;
+}
+
+#display_deactivated_rooms{
+	position:absolute;
+	margin-left:32%;
+    margin-top:-42.5%
+}
+
+#display_activate_rooms{
+	position:absolute;
+	margin-left:32%;
+    margin-top:-42.5%
+}
+
+
+#deactivate_dates{
+	position:absolute;
+	margin-left:45%;
+	margin-top:-30%;
+}

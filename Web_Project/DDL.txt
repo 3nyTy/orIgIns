@@ -1,0 +1,89 @@
+DDL:
+
+
+drop table hoteluser;
+create table hoteluser
+(
+customer_id number(10) not null,
+username varchar(20) not null,
+password varchar(15) not null,
+customer_name varchar(15) not null,
+email_id varchar(25) not null,
+contact_no number(10) not null,
+address varchar(40),
+primary key (customer_id)
+);
+
+drop table room_status;
+create table room_status
+(
+booking_Status varchar(15),
+booking_id varchar(10),
+check_in_date date,
+check_out_date date,
+customer_id number(10),
+room_no number(5),
+foreign key (customer_id) references hoteluser(customer_id),
+foreign key (room_no) references room(room_no),
+primary key (room_no)
+);
+
+drop sequence customer_sequence;
+drop sequence bookingid_seq;
+
+CREATE SEQUENCE customer_sequence MINVALUE 00000   MAXVALUE 99999  START WITH 10001  INCREMENT BY 1;
+  
+CREATE SEQUENCE bookingid_seq  MINVALUE 00000   MAXVALUE 99999  START WITH 10001  INCREMENT BY 1;
+
+drop table speciality cascade constraints;
+create table speciality
+(
+room_no number(5),
+speciality varchar(20),
+foreign key(room_no) references room(room_no)
+);
+
+
+create table room
+(
+room_no number(5) not null,
+tariff number(20) not null,
+ad_status varchar(15) not null,
+category_id number(20) not null,
+start_date DATE not null,
+end_date DATE not null,
+image varchar(40),
+primary key (room_no),
+foreign key (category_id) references category (category_id)
+);
+
+create table category
+(
+category_type varchar2(15),
+ category_id number(20),
+ primary key (category_id)
+)
+
+
+Insert into hoteluser (CUSTOMER_ID,USERNAME,PASSWORD,CUSTOMER_NAME,EMAIL_ID,CONTACT_NO,ADDRESS) values (10007,'abcd','abcd123','superman','abcd123@gmail.com',9876543210,'12, 2nd road, street 2 , area71');
+Insert into hoteluser (CUSTOMER_ID,USERNAME,PASSWORD,CUSTOMER_NAME,EMAIL_ID,CONTACT_NO,ADDRESS) values (10008,'admin1','admin123','admin','admin@gmail.com',9998887774,'12, 2nd road, street 2 , area71');
+Insert into hoteluser (CUSTOMER_ID,USERNAME,PASSWORD,CUSTOMER_NAME,EMAIL_ID,CONTACT_NO,ADDRESS) values (10001,'admin','admin123','admin','admin@gmail.com',9998887774,'12, 2nd road, street 2 , area71');
+
+
+table category created.
+table ROOM created.
+table speciality created.
+table HOTELUSER created.
+table ROOM_STATUS created.
+table SPECIALITY created.
+
+
+
+
+insert into category("NON A/C Standard",1);
+insert into category("A/C Standard",2);
+insert into category("NON A/C Deluxe",3);
+insert into category("A/C Deluxe",4);
+insert into category("Premium",5);
+
+select room.room_no,room.tariff,category.category_type from room inner join category on (category.category_id=room.category_id) inner join room_status on (room.room_no=room_status.room_no) where ((room_status.booking_status='Booked') and ((room_status.check_in_date>to_date(?,'dd/mm/yyyy') and room_status.check_in_date>to_date(?,'dd/mm/yyyy')) or (room_status.check_out_date<to_date(?,'dd/mm/yyyy') and room_status.check_out_date<to_date(?,'dd/mm/yyyy')))) or ( room_status.booking_status='Available')
